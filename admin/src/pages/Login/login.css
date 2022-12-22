@@ -1,0 +1,8 @@
+.loginbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 100px auto;
+  width: 30%;
+  gap: 10px;
+}

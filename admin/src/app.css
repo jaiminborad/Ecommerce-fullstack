@@ -5,6 +5,7 @@
 }
 .pageContainer {
   flex: 4;
+  margin-left: 50px;
 }
 .link {
   text-decoration: none;
