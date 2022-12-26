@@ -1,8 +1,23 @@
+.background {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: url("https://images.unsplash.com/photo-1632146175602-58736e7b27e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80")
+    no-repeat center center/cover;
+  opacity: 2.5;
+  z-index: -5;
+}
+
 .loginbox {
+  padding: 20px;
+  color: #01128b;
+  background-color: #fbfbff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 100px auto;
   width: 30%;
   gap: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

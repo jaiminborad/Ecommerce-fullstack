@@ -11,19 +11,27 @@ import NewProduct from "./pages/NewProduct/NewProduct";
 import Layout from "./layout/Layout";
 
 const App = () => {
+  const admin = JSON.parse(
+    JSON.parse(localStorage.getItem("persist:root")).user
+  ).currentUser.isAdmin;
+
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route element={<Layout />}>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/users" element={<UserList />} />
-          <Route path="/user/:userId" element={<User />} />
-          <Route path="/newUser" element={<NewUser />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/product/:productId" element={<Product />} />
-          <Route path="/newProduct" element={<NewProduct />} />
-        </Route>
+        {admin && (
+          <>
+            <Route element={<Layout />}>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/users" element={<UserList />} />
+              <Route path="/user/:userId" element={<User />} />
+              <Route path="/newUser" element={<NewUser />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/product/:productId" element={<Product />} />
+              <Route path="/newProduct" element={<NewProduct />} />
+            </Route>
+          </>
+        )}
       </Routes>
     </Router>
   );

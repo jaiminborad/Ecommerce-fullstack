@@ -5,8 +5,21 @@ import { DeleteOutline } from "@mui/icons-material";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUsers, getUsers } from "../../redux/apiCalls";
 
 const UserList = () => {
+  const dispatch = useDispatch();
+
+  const users = useSelector((state) => state.user.users);
+
+  useEffect(() => {
+    getUsers(dispatch);
+  }, [dispatch]);
+
+  console.log({ users });
+
   const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
@@ -14,7 +27,7 @@ const UserList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 220 },
     {
       field: "username",
       headerName: "Username",
